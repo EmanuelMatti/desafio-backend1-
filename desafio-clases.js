@@ -1,25 +1,71 @@
 class Usuario {
-    constructor(nombre, apellido, libros, mascotas){
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.libros = libros;
-        this.mascotas = mascotas
+    constructor(name, lastname, books, pets) {
+      this.name = name;
+      this.lastname = lastname;
+      this.books = books;
+      this.pets = pets;
     }
-    addMascotas(mascotas){
-        const agregarMascota = ["pegaso"];
-        console.log(agregarMascota);
-        this.mascotas.push(agregarMascota)
+  
+   
+    getFullName() {
+      return `El nombre completo es: ${this.name} ${this.lastname}`;
+    }
+  
+    
+    addPet(petName) {
+      const newPet = petName;
+      this.pets.push(newPet);
+    }
+  
+   
+    countPets() {
+      return this.pets.length;
+    }
+  
+  
+    addBook(autor, libro) {
+      const newBook = { autor: autor, libro: libro };
+      this.books.push(newBook);
+    }
+  
+    
+    getBookNames() {
+      const bookNames = this.books.map((book) => book.libro);
+      return bookNames;
+    }
+  }
+  
+  const usuario1 = new Usuario(
+    "moño",
+    "demoño",
+    [
+      { autor: "jose", libro: "joselo" },
+      { autor: "nelll", libro: "son" },
+    ],
+    ["hernan", "championsliga"]
+  );
+  
+  
+  
 
-    }
+  console.log(usuario1);
+  
+  
+  console.log(usuario1.getFullName());
+  
 
-    addBook(nombre, autor){
-        const newBook = {nombre: nombre, autor: autor};
-        console.log(newBook)
-        this.libros.push(newBook);
-    }
-}
-const usuario1 = new Usuario("emanuel", "matti", [{nombre:"stefano", autor:"nelson mandela"}], ["tomy", "jack"])
-const usuario2 = new Usuario("javier", "montreal", [{nombre:"rafaga", autor:"chispirito"}], ["felipe"])
-console.log(usuario1);
-usuario1.addBook("harry potter", "el cabron");
-usuario2.agregarMascota("pegaso");
+  usuario1.addPet("michin");
+  
+
+  console.log(usuario1);
+  
+
+  console.log(usuario1.countPets());
+
+  usuario1.addBook("Jorge", "Jorgelin");
+  
+ 
+  console.log(usuario1);
+  
+
+  console.log(usuario1.getBookNames());
